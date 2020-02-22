@@ -23,15 +23,15 @@ public class HealthServiceImp implements HealthService1 {
 		return flag;
 	}
 
-	public boolean  addCenter(DiagnosticCenter center) throws HealthException {
+	public boolean addCenter(DiagnosticCenter center) throws HealthException {
 		String name = center.getCenterName();
 		boolean flag = validateName(name);
 		if (!flag) {
 			throw new HealthException("center already present");
 		}
-		Random random=new Random();
-		int id=random.nextInt(100)+1000;
-		String s=Integer.toString(id);
+		Random random = new Random();
+		int id = random.nextInt(100) + 1000;
+		String s = Integer.toString(id);
 		center.setCenterId(s);
 		healthDao.addCenter1(center);
 		return false;
@@ -51,7 +51,7 @@ public class HealthServiceImp implements HealthService1 {
 		Random random = new Random();
 		int id = random.nextInt(100) + 1000;
 		test.setTestId(id + "");
-		 String sid= HealthServiceImp.addTest1(test);
+		String sid = HealthServiceImp.addTest1(test);
 		return sid;
 	}
 
@@ -83,7 +83,7 @@ public class HealthServiceImp implements HealthService1 {
 
 	public void displayDiagnosticCenters() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public String addTest(Test test) throws HealthException {
